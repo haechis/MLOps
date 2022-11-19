@@ -1,0 +1,10 @@
+apiVersion: v1 # kubernetes resource API Version
+kind: Pod # kubernetes resource name
+metadata: # metadata: name, namespace, labels, annotations ..
+  name: counter
+spec: # main part: desired state of resource
+  containers:
+  - name: count # name of nontainer
+    image: busybox # image of container
+    # args: part what I want to input, to args of entrypoint of image
+    args: [/bin/sh, -c, 'i=0; while true; do echo "$i: $(date)"; i=$((i+1)); sleep 1; done']

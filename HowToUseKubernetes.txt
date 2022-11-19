@@ -1,0 +1,33 @@
+1. $ minikube start --driver=docker
+2. (make pod.yaml)
+3. $ kubectl apply -f pod.yaml
+ - create or change the kubernetes resource (pod.yaml)
+  -- pod.yaml : <yaml-file-path>
+
+3.1. state
+ - kubectl get pod
+
+3.2. namespace check.
+ - kubectl config view --minify | grep namespace:
+  -- namespace: default
+
+ - check namespace of pod
+  -- kubectl get pod -A
+
+3.3. to printing pod list
+ - $ kubectl get pod -o wide
+
+3.4. to printing <pod-name> as yaml
+ - $ kubectl get pod <pod-name> -o yaml
+ - e.g., $ kubectl get pod counter -o yaml
+
+4. Pod Log
+
+4.1. kubectl logs <pod-name>
+ - kubectl logs <pod-name>s
+
+4.2. if there are several container, 
+ - $ kubectl logs <pod-name> -c <container-name>
+
+5. delete pod
+ - kubectl delte pod counter
